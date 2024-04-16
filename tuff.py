@@ -56,7 +56,24 @@ def take_orders(customer_info, menu):
                 print("Sorry, we don't have that item on the menu, please choose something else.")
                 orders[person].append(None)
     return orders
-
+ """Kobe's Code (Methods)"""
+class Restaurant:
+    def __init__(self,name):
+        self.name = name 
+        self.waiter = Waiter()
+        
+    def welcoming_customer(self):
+        print(f"Welcome to {self.name}!")
+        self.waiter.greet_customer()
+        
+class Waiter: 
+    
+    def greet_customer(self): 
+        party_size=self.ask_size()
+        print(f"Awesome! Since your party size is {party_size}. Let me show you to your table!")  
+def ask_size(self):
+    """Will be a method that allows the user to enter a party size. """
+    
 
 
     
