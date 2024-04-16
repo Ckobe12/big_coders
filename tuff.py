@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 
 '''Joaddan's Code'''
 class MenuItem:
@@ -66,4 +65,71 @@ def take_orders(customer_info, menu):
 
 
 
->>>>>>> parent of d0560b4 (Update tuff.py)
+'''Neil's Code'''
+
+class Waiter:
+    
+    """Initializes a class called waiter who assigns guests to the corresponding table"""
+
+    def __init__(self, restaurant_tables):
+        self.restaurant_tables = restaurant_tables
+    
+    """Initializes restaurant tables with each table having a guest capacity"""
+
+    def assign_guests (self, num_guests):
+        
+        """Initializes the number of guests to correspond to a table
+        
+        Args:
+            num_guests(int): number of guests waiting to be seated 
+            """    
+        
+        assigned = False
+        for table, capacity in self.restaurant_tables.items():
+            if num_guests <= capacity:
+                self.restaurant_tables[table] -= num_guests
+                print(f"Assigned {num_guests} guests to table {table}.")
+                assigned = True
+                break
+        if not assigned:
+            print("No available table to accommodate the guests.")
+
+restaurant_tables = {
+    1: 2,
+    2: 4,
+    3: 6,
+    4: 8,
+    5: 10
+}
+
+waiter = Waiter(restaurant_tables)
+
+num_guests = int(input("Enter the number of guests: "))
+
+waiter.assign_guests(num_guests)
+print("Updated table assignments:", restaurant_tables)
+
+
+
+
+
+
+"""Kobe's Code (Methods)"""
+
+class Restaurant:
+    def __init__(self,name):
+        self.name = name 
+        self.waiter = Waiter()
+
+    def welcoming_customer(self):
+        print(f"Welcome to {self.name}!")
+        self.waiter.greet_customer()
+
+class Waiter: 
+
+    def greet_customer(self): 
+        party_size=self.ask_size()
+        print(f"Awesome! Since your party size is {party_size}. Let me show you to your table!")  
+def ask_size(self):
+    """Will be a method that allows the user to enter a party size. """
+
