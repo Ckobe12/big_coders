@@ -1,9 +1,22 @@
+'''Neil's Code'''
 
 class Waiter:
+    
+    """Initializes a class called waiter who assigns guests to the corresponding table"""
+
     def __init__(self, restaurant_tables):
         self.restaurant_tables = restaurant_tables
+    
+    """Initializes restaurant tables with each table having a guest capacity"""
 
     def assign_guests (self, num_guests):
+        
+        """Initializes the number of guests to correspond to a table
+        
+        Args:
+            num_guests(int): number of guests waiting to be seated 
+            """    
+        
         assigned = False
         for table, capacity in self.restaurant_tables.items():
             if num_guests <= capacity:
