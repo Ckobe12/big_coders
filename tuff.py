@@ -134,4 +134,6 @@ class Waiter:
         print(f"Awesome! Since your party size is {party_size}. Let me show you to your table!")  
 def ask_size(self):
     """Will be a method that allows the user to enter a party size. """
+    
+    def__init__: 
 
