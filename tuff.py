@@ -60,8 +60,26 @@ def take_orders(customer_info, menu):
                 orders[person].append(None)
     return orders
 
-
-
+def billcalc(orders, menu):
+    '''Calculating the total bill for each person based on their orders.
+    Args:
+        orders(dict): A dict havinng all the orders for each person.
+        menu(Menu): An instance of the Menu class showing the options.
+        
+    Returns:
+        dict: A dictionary having the total bill for each person.
+    '''
+    bill = {}
+    for person, order_list in orders.items():
+        total_price = 0
+        for item in order_list:
+            for food in menu.foods:
+                if item == food.name:
+                    total_price += food.price
+                    break
+        bill[person] = total_price
+    return bill
+        
     
 
 
@@ -137,3 +155,4 @@ def ask_size(self):
     
     def__init__: 
 
+"test code"
