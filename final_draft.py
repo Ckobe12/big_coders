@@ -36,8 +36,8 @@ class Restaurant:
 #Neil you need to add all off the methodfs that I have created into your waiter class and have the functions that conduct those specific actions such as asking th party size, welcoming guests etc. 
 '''Joaddan's Code'''
 class MenuItem:
-    def __init__(self, name, keywords):
-        self.name = name
+    def __init__(self, name, keywords): #Neil the attributes in the Waiter class need to change to match the restaurant class that I created so that they can talk to one another. 
+        self.name = name               # that means they should probably be self, restaurant and menu  (menu, when Joaddan creates that class because the waiter will be talking to and referring back to the menu overall)
         self.keywords = keywords
         
 
