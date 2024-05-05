@@ -1,3 +1,5 @@
+import csv
+
 """Kobe's Code (Methods)"""
 
 class Restaurant:
@@ -35,8 +37,16 @@ class Menu:
 
     def display_menu(self):
         print("Menu:")
-        for food in self.foods:
-            print(f"{food.name}")
+        with open("jjknmenu.csv", mode='r', newline='') as file:
+            readmenu = csv.DictReader(file)
+            for row in readmenu:
+                name = row['Item']
+                keywords = []
+                price = float(row['Price'])
+                food = MenuItem(name, keywords)
+                self.add_food(food)
+                print(food.name)
+              
 
     def find_food(self, keyword):
         matches = []
@@ -90,10 +100,11 @@ def billcalc(orders, menu):
     for person, order_list in orders.items():
         total_price = 0
         for item in order_list:
-            for food in menu.foods:
-                if item == food.name:
-                    total_price += food.price
-                    break
+            if item:
+                for food in menu.foods:
+                    if item == food.name:
+                        total_price += food.price
+                        break
         bill[person] = total_price
     return bill
         
