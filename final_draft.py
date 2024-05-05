@@ -77,14 +77,11 @@ class Waiter:
     def welcome_guest(self):
         print(f"Great, we have a nice table for {self.party_size} guests! Right this way please!")
     
-    def assign_guests(self, num_guests):
-        
-        """Initializes the number of guests to correspond to a table
-        
+    def assign_guests(self, num_guests): 
+        """Initializes the number of guests to correspond to a tabl 
         Args:
             num_guests(int): number of guests waiting to be seated 
-            """    
-        
+            """     
         assigned = False
         for table, capacity in self.restaurant_tables.items():
             if num_guests <= capacity:
@@ -102,7 +99,7 @@ restaurant_tables = {
     4: 8,
     5: 10
 }
-    def take_order(self):
+def take_order(self):
         # get order from user
         # Use the self.menu to find the order
         self.menu.display_menu()
@@ -110,32 +107,6 @@ restaurant_tables = {
 
     
     """Initializes restaurant tables with each table having a guest capacity"""
-
-    def assign_guests(self, num_guests):
-        
-        """Initializes the number of guests to correspond to a table
-        
-        Args:
-            num_guests(int): number of guests waiting to be seated 
-            """    
-        
-        assigned = False
-        for table, capacity in self.restaurant_tables.items():
-            if num_guests <= capacity:
-                self.restaurant_tables[table] -= num_guests
-                print(f"Assigned {num_guests} guests to table {table}.")
-                assigned = True
-                break
-        if not assigned:
-            print("No available table to accommodate the guests.")
-
-restaurant_tables = {
-    1: 2,
-    2: 4,
-    3: 6,
-    4: 8,
-    5: 10
-}
 
 '''John's Code'''
 def take_orders(customer_info, menu):
