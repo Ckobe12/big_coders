@@ -36,9 +36,8 @@ class Restaurant:
 #Neil you need to add all off the methodfs that I have created into your waiter class and have the functions that conduct those specific actions such as asking th party size, welcoming guests etc. 
 '''Joaddan's Code'''
 class MenuItem:
-    def __init__(self, name, keywords): #Neil the attributes in the Waiter class need to change to match the restaurant class that I created so that they can talk to one another. 
-        self.name = name               # that means they should probably be self, restaurant and menu  (menu, when Joaddan creates that class because the waiter will be talking to and referring back to the menu overall)
-        self.keywords = keywords
+    def __init__(self, name, keywords):
+        self.name = name               
         
 
 class Menu:
@@ -65,16 +64,11 @@ class Menu:
 
 """Neil's Code """        
 class Waiter:
-    # Attributes
-    # self.party_size (int, has the guest party size)
-    # self.restaurant_tables (dictionary, set of tables in the restaurant)
-    # self.menu (Menu, represent the menu in the restaurant)
-
     """Initializes a class called waiter who assigns guests to the corresponding table"""
     def __init__(self, restaurant_tables):
-        self.restaurant_tables = restaurant_tables
-        self.party_size = 0
-        self.menu = Menu()
+        self.restaurant_tables = restaurant_tables# self.restaurant_tables (dictionary, set of tables in the restaurant)
+        self.party_size = 0     # self.party_size (int, has the guest party size)
+        self.menu = Menu() # self.menu (Menu, represent the menu in the restaurant)
 
     def take_order(self):
         # get order from user
@@ -87,7 +81,7 @@ class Waiter:
     
     """Initializes restaurant tables with each table having a guest capacity"""
 
-    def assign_guests (self, num_guests):
+    def assign_guests(self, num_guests):
         
         """Initializes the number of guests to correspond to a table
         
