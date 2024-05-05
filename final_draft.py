@@ -89,10 +89,6 @@ def take_order(self):
 
 
 
-
-
-
-
 '''Joaddan's Code'''
 class MenuItem:
      """
@@ -119,7 +115,7 @@ class Menu:
         Display the menu by reading from a CSV file and printing each item's name and price.
         """
         print("Menu:")
-        with open("jjknmenu2.csv", mode='r', newline='') as file:
+        with open("bigmenu.csv", mode='r', newline='') as file:
             readmenu = csv.DictReader(file)
             for row in readmenu:
                 name = row['Item']
