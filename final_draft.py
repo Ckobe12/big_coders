@@ -126,11 +126,12 @@ class Waiter:
                             3: 6,
                             4: 8,
                             5: 10}
-        def ask_waiter_to_serve(self):
+        
+    def ask_waiter_to_serve(self):
             self.waiter.welcome_guest()
-            num_guests = self.ask_party_size()  # Get the number of guests
-            self.waiter.assign_guests(num_guests) 
-            self.waiter.calculates_orders()  
+            self.waiter.assign_guests()# 
+            self.waiter.take_orders #waiter takes orders
+            self.waiter.calculates_orders # waiter calculates the orders as well
 
     def take_order(self):
         # get order from user
