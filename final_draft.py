@@ -36,6 +36,62 @@ class Restaurant:
         self.waiter.take_orders #waiter takes orders
         self.waiter.calculates_orders # waiter calculates the orders as well
 
+
+
+
+
+
+"""Neil's Code """        #Neil you need to add all off the methodfs that I have created into your 
+                          #waiter class and have the functions that conduct those specific 
+                          # actions such as asking th party size, welcoming guests etc. 
+class Waiter:
+    """Initializes a class called waiter who assigns guests to the corresponding table"""
+    def __init__(self, restaurant_tables):
+        self.restaurant_tables = restaurant_tables# self.restaurant_tables (dictionary, set of tables in the restaurant)
+        self.party_size = 0     # self.party_size (int, has the guest party size)
+        self.menu = Menu() # self.menu (Menu, represent the menu in the restaurant)
+
+    def welcome_guest(self):
+        print(f"Great, we have a nice table for {self.party_size} guests! Right this way please!")
+    
+    def assign_guests(self, num_guests): 
+        """Initializes the number of guests to correspond to a tabl 
+        Args:
+            num_guests(int): number of guests waiting to be seated 
+            """     
+        assigned = False
+        for table, capacity in self.restaurant_tables.items():
+            if num_guests <= capacity:
+                self.restaurant_tables[table] -= num_guests
+                print(f"Assigned {num_guests} guests to table {table}.")
+                assigned = True
+                break
+        if not assigned:
+            print("No available table to accommodate the guests.")
+
+restaurant_tables = {
+    1: 2,
+    2: 4,
+    3: 6,
+    4: 8,
+    5: 10
+}
+def take_order(self):
+        # get order from user
+        # Use the self.menu to find the order
+        self.menu.display_menu()
+        self.menu.find_food(order)
+
+
+  """Initializes restaurant tables with each table having a guest capacity"""
+
+
+
+
+
+
+
+
 '''Joaddan's Code'''
 class MenuItem:
      """
@@ -95,49 +151,9 @@ menu.display_menu()
 
 
 
-"""Neil's Code """        #Neil you need to add all off the methodfs that I have created into your 
-                          #waiter class and have the functions that conduct those specific 
-                          # actions such as asking th party size, welcoming guests etc. 
-class Waiter:
-    """Initializes a class called waiter who assigns guests to the corresponding table"""
-    def __init__(self, restaurant_tables):
-        self.restaurant_tables = restaurant_tables# self.restaurant_tables (dictionary, set of tables in the restaurant)
-        self.party_size = 0     # self.party_size (int, has the guest party size)
-        self.menu = Menu() # self.menu (Menu, represent the menu in the restaurant)
-
-    def welcome_guest(self):
-        print(f"Great, we have a nice table for {self.party_size} guests! Right this way please!")
-    
-    def assign_guests(self, num_guests): 
-        """Initializes the number of guests to correspond to a tabl 
-        Args:
-            num_guests(int): number of guests waiting to be seated 
-            """     
-        assigned = False
-        for table, capacity in self.restaurant_tables.items():
-            if num_guests <= capacity:
-                self.restaurant_tables[table] -= num_guests
-                print(f"Assigned {num_guests} guests to table {table}.")
-                assigned = True
-                break
-        if not assigned:
-            print("No available table to accommodate the guests.")
-
-restaurant_tables = {
-    1: 2,
-    2: 4,
-    3: 6,
-    4: 8,
-    5: 10
-}
-def take_order(self):
-        # get order from user
-        # Use the self.menu to find the order
-        self.menu.display_menu()
-        self.menu.find_food(order)
 
     
-    """Initializes restaurant tables with each table having a guest capacity"""
+
 
 '''John's Code'''
 def take_orders(customer_info, menu):
