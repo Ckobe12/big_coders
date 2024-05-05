@@ -23,9 +23,18 @@ def ask_size(self):
 
 '''Joaddan's Code'''
 class MenuItem:
-    def __init__(self, name, keywords):
+    """
+       Initialize a MenuItem object.
+
+
+       Args:
+           name (str): The name of the menu item.
+           Price ():Price that goes with the menu item.
+       """
+
+    def __init__(self, name, price):
         self.name = name
-        self.keywords = keywords
+        self.price = price
         
 
 class Menu:
@@ -37,16 +46,15 @@ class Menu:
 
     def display_menu(self):
         print("Menu:")
-        with open("jjknmenu.csv", mode='r', newline='') as file:
+        with open("jjknmenu2.csv", mode='r', newline='') as file:
             readmenu = csv.DictReader(file)
             for row in readmenu:
                 name = row['Item']
-                keywords = []
-                price = float(row['Price'])
-                food = MenuItem(name, keywords)
+                price = float(row['Price'].replace('$','').strip())
+                food = MenuItem(name, price)
                 self.add_food(food)
-                print(food.name)
-              
+                print(f"{food.name}: ${food.price}")
+           
 
     def find_food(self, keyword):
         matches = []
@@ -54,6 +62,9 @@ class Menu:
             if keyword.lower() in food.keywords:
                 matches.append(food)
         return matches
+
+menu = Menu()
+menu.display_menu()
     
 '''John's Code'''
 def take_orders(customer_info, menu):
