@@ -124,6 +124,60 @@ def main():
 
     print("Thank you for dining in our restaurant!")
 
+'''John's Code'''
+def take_orders(customer_info, menu):
+    '''Takes orders from customers based on a given menu.
+    
+    Args:
+    customer_info (list of tuples): contains customer info, which consist of the
+                                    customer's name and their party size.
+    menu (Menu): Instance of the Menu class showing the available menu options
+    
+    Returns:
+    dict: A dictionary that has the order for each person with the keys being their names and values as the list of ordered food.
+    
+    
+    '''
+    orders = {}
+    for person, party_size in customer_info:
+        print(f'Ordering for person {person}:')
+        orders[person] = []
+        for i in range(party_size):
+            order = input('What would you like to eat today?')
+            matches = menu.find_food(order)
+            if matches:
+                print(f'Menu items matching "{order}":')
+                for match in matches:
+                    print(match.name)
+                waiter = input("Please choose an item you would like to eat:")
+                orders[person].append(waiter)
+            else:
+                print("Sorry, we don't have that item on the menu, please choose something else.")
+                orders[person].append(None)
+    return orders
+
+def billcalc(orders, menu):
+    '''Calculating the total bill for each person based on their orders.
+    Args:
+        orders(dict): A dict havinng all the orders for each person.
+        menu(Menu): An instance of the Menu class showing the options.
+        
+    Returns:
+        dict: A dictionary having the total bill for each person.
+    '''
+    bill = {}
+    for person, order_list in orders.items():
+        total_price = 0
+        for item in order_list:
+            if item:
+                for food in menu.foods:
+                    if item == food.name:
+                        total_price += food.price
+                        break
+        bill[person] = total_price
+    return bill
+        
+
 if __name__ =="__main__":
     main()
 
