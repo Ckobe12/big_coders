@@ -1,5 +1,5 @@
 import argparse
-
+import csv
 """ Kobe's Code"""
 class Restaurant: 
     """_summary_
@@ -129,16 +129,17 @@ def take_orders(customer_info, menu):
     '''
     orders = {}
     for person, party_size in customer_info:
-        print(f'Ordering for person {person}:')
+        print(f'Ordering for party of {party_size} ({person}):')
         orders[person] = []
         for i in range(party_size):
-            order = input('What would you like to eat today?')
+            print(f'Ordering for person {i+1}:')
+            order = input('What would you like to eat today? ')
             matches = menu.find_food(order)
             if matches:
                 print(f'Menu items matching "{order}":')
                 for match in matches:
                     print(match.name)
-                waiter = input("Please choose an item you would like to eat:")
+                waiter = input("Please choose an item you would like to eat: ")
                 orders[person].append(waiter)
             else:
                 print("Sorry, we don't have that item on the menu, please choose something else.")
