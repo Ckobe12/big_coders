@@ -5,35 +5,37 @@ class Restaurant:
     """_summary_
     """
     def __init__(self,name, waiter):
-        """_summary_
-
+        """ #Kobe 
         Args:
-            name (str): _description_
-            waiter (str): _description_
+            name (str): The name of the restaurant 
+            waiter (str): The waiter.
         """
         self.name = name
         self.waiter = waiter
         
-    def welcome_guest(self):
-        """_summary_
+    def welcome_guest(self): 
+        """
+        #Kobe #f-string
+        A function that welcomes the guest to the restaurant. 
         """
         print(f"Welcome to {self.name}!")
     
     def ask_party_size(self):
-        """_summary_
+        """ #Kobe
+        A function that asks the party size of the guests before seating them. 
         """
         party_size = int(input("How many guests are in your party today?"))
         self.waiter.party_size = party_size
 
     def ask_waiter_to_serve(self):
-        """_summary_
+        """ #Kobe 
+        The differnet methods? That the restaurant tells the waiter to enact in order to interact with the guests. 
         """
         self.waiter.welcome_guest()
         self.waiter.assign_guests()# 
         self.waiter.take_orders#waiter takes orders
         self.waiter.calculates_orders # waiter calculates the orders as well
 
-#Neil you need to add all off the methodfs that I have created into your waiter class and have the functions that conduct those specific actions such as asking th party size, welcoming guests etc. 
 '''Joaddan's Code'''
 class MenuItem:
     def __init__(self, name, keywords):
@@ -62,7 +64,9 @@ class Menu:
         return matches
 
 
-"""Neil's Code """        
+"""Neil's Code """        #Neil you need to add all off the methodfs that I have created into your 
+                          #waiter class and have the functions that conduct those specific 
+                          # actions such as asking th party size, welcoming guests etc. 
 class Waiter:
     """Initializes a class called waiter who assigns guests to the corresponding table"""
     def __init__(self, restaurant_tables):
