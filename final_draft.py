@@ -57,6 +57,9 @@ class Menu:
         self.foods.append(food)
 
     def display_menu(self):
+        """
+        Display the menu by reading from a CSV file and printing each item's name and price.
+        """
         print("Menu:")
         with open("jjknmenu2.csv", mode='r', newline='') as file:
             readmenu = csv.DictReader(file)
@@ -69,6 +72,15 @@ class Menu:
            
 
     def find_food(self, keyword):
+        """
+        Find food items that have the keyword.
+
+        Args:
+            keyword (str): The keyword to search for in the menu item names.
+
+        Returns:
+            list of MenuItem: A list of MenuItem things that contain the keyword.
+        """
         matches = []
         for food in self.foods:
             if keyword.lower() in food.keywords:
