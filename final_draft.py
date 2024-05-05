@@ -137,23 +137,6 @@ restaurant_tables = {
     5: 10
 }
 
-def main():
-    waiter = Waiter(restaurant_tables)
-    restauran_t = Restaurant("J.J.K.N Grill & Buffet", waiter)
-
-    restauran_t.welcome_guest() 
-    restauran_t.ask_party_size()    # This is going to set the party size attribute in waiter
-
-    restauran_t.ask_waiter_to_serve()
-
-    print("Thank you for dining in our restaurant!")
-
-
-
-
-
-
-
 '''John's Code'''
 def take_orders(customer_info, menu):
     '''Takes orders from customers based on a given menu.
@@ -206,11 +189,21 @@ def billcalc(orders, menu):
                         break
         bill[person] = total_price
     return bill
-        
 
+
+
+def main():
+    waiter = Waiter(restaurant_tables)
+    restauran_t = Restaurant("J.J.K.N Grill & Buffet", waiter)
+
+    restauran_t.welcome_guest() 
+    restauran_t.ask_party_size()    # This is going to set the party size attribute in waiter
+
+    restauran_t.ask_waiter_to_serve()
+
+    print("Thank you for dining in our restaurant!")
 if __name__ =="__main__":
     main()
-
    
 
 
