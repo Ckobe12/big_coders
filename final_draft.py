@@ -41,13 +41,10 @@ class Restaurant:
 class MenuItem:
      """
        Initialize a MenuItem object.
-
-
        Args:
            name (str): The name of the menu item.
            Price ():Price that goes with the menu item.
        """
-
      def __init__(self, name, price):
         self.name = name
         self.price = price
@@ -111,15 +108,19 @@ class Waiter:
                 break
         if not assigned:
             print("No available table to accommodate the guests.")
+            restaurant_tables = {
+                            1: 2,
+                            2: 4,
+                            3: 6,
+                            4: 8,
+                            5: 10}
+        def ask_waiter_to_serve(self):
+            self.waiter.welcome_guest()
+            num_guests = self.ask_party_size()  # Get the number of guests
+            self.waiter.assign_guests(num_guests) 
+            self.waiter.calculates_orders()  
 
-restaurant_tables = {
-    1: 2,
-    2: 4,
-    3: 6,
-    4: 8,
-    5: 10
-}
-def take_order(self):
+    def take_order(self):
         # get order from user
         # Use the self.menu to find the order
         self.menu.display_menu()
