@@ -23,6 +23,15 @@ def ask_size(self):
 
 '''Joaddan's Code'''
 class MenuItem:
+    """
+       Initialize a MenuItem object.
+
+
+       Args:
+           name (str): The name of the menu item.
+           Price ():Price that goes with the menu item.
+       """
+
     def __init__(self, name, price):
         self.name = name
         self.price = price
