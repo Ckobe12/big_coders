@@ -39,14 +39,21 @@ class Restaurant:
 
 '''Joaddan's Code'''
 class MenuItem:
-    def __init__(self, name, keywords):
-        self.name = name               
-        
+     """
+       Initialize a MenuItem object.
 
+
+       Args:
+           name (str): The name of the menu item.
+           Price ():Price that goes with the menu item.
+       """
+
+     def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        
 class Menu:
     def __init__(self):
-        # Read the CSV file
-        # Use that to populate self.foods
         self.foods = []
 
     def add_food(self, food):
@@ -54,8 +61,15 @@ class Menu:
 
     def display_menu(self):
         print("Menu:")
-        for food in self.foods:
-            print(f"{food.name}")
+        with open("jjknmenu2.csv", mode='r', newline='') as file:
+            readmenu = csv.DictReader(file)
+            for row in readmenu:
+                name = row['Item']
+                price = float(row['Price'].replace('$','').strip())
+                food = MenuItem(name, price)
+                self.add_food(food)
+                print(f"{food.name}: ${food.price}")
+           
 
     def find_food(self, keyword):
         matches = []
@@ -63,6 +77,11 @@ class Menu:
             if keyword.lower() in food.keywords:
                 matches.append(food)
         return matches
+
+menu = Menu()
+menu.display_menu()
+    
+
 
 
 """Neil's Code """        #Neil you need to add all off the methodfs that I have created into your 
