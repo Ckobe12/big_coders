@@ -5,40 +5,41 @@ class Restaurant:
     """_summary_
     """
     def __init__(self,name, waiter):
-        """_summary_
-
+        """ #Kobe 
         Args:
-            name (str): _description_
-            waiter (str): _description_
+            name (str): The name of the restaurant 
+            waiter (str): The waiter.
         """
         self.name = name
         self.waiter = waiter
         
-    def welcome_guest(self):
-        """_summary_
+    def welcome_guest(self): 
+        """
+        #Kobe #f-string
+        A function that welcomes the guest to the restaurant. 
         """
         print(f"Welcome to {self.name}!")
     
     def ask_party_size(self):
-        """_summary_
+        """ #Kobe
+        A function that asks the party size of the guests before seating them. 
         """
         party_size = int(input("How many guests are in your party today?"))
         self.waiter.party_size = party_size
 
     def ask_waiter_to_serve(self):
-        """_summary_
+        """ #Kobe 
+        The differnet methods? That the restaurant tells the waiter to enact in order to interact with the guests. 
         """
         self.waiter.welcome_guest()
         self.waiter.assign_guests()# 
-        self.waiter.take_orders#waiter takes orders
+        self.waiter.take_orders #waiter takes orders
         self.waiter.calculates_orders # waiter calculates the orders as well
 
-#Neil you need to add all off the methodfs that I have created into your waiter class and have the functions that conduct those specific actions such as asking th party size, welcoming guests etc. 
 '''Joaddan's Code'''
 class MenuItem:
-    def __init__(self, name, keywords): #Neil the attributes in the Waiter class need to change to match the restaurant class that I created so that they can talk to one another. 
-        self.name = name               # that means they should probably be self, restaurant and menu  (menu, when Joaddan creates that class because the waiter will be talking to and referring back to the menu overall)
-        self.keywords = keywords
+    def __init__(self, name, keywords):
+        self.name = name               
         
 
 class Menu:
@@ -63,31 +64,54 @@ class Menu:
         return matches
 
 
-"""Neil's Code """        
+"""Neil's Code """        #Neil you need to add all off the methodfs that I have created into your 
+                          #waiter class and have the functions that conduct those specific 
+                          # actions such as asking th party size, welcoming guests etc. 
 class Waiter:
-    # Attributes
-    # self.party_size (int, has the guest party size)
-    # self.restaurant_tables (dictionary, set of tables in the restaurant)
-    # self.menu (Menu, represent the menu in the restaurant)
-
     """Initializes a class called waiter who assigns guests to the corresponding table"""
     def __init__(self, restaurant_tables):
-        self.restaurant_tables = restaurant_tables
-        self.party_size = 0
-        self.menu = Menu()
+        self.restaurant_tables = restaurant_tables# self.restaurant_tables (dictionary, set of tables in the restaurant)
+        self.party_size = 0     # self.party_size (int, has the guest party size)
+        self.menu = Menu() # self.menu (Menu, represent the menu in the restaurant)
 
+    def welcome_guest(self):
+        print(f"Great, we have a nice table for {self.party_size} guests! Right this way please!")
+    
+    def assign_guests(self, num_guests):
+        
+        """Initializes the number of guests to correspond to a table
+        
+        Args:
+            num_guests(int): number of guests waiting to be seated 
+            """    
+        
+        assigned = False
+        for table, capacity in self.restaurant_tables.items():
+            if num_guests <= capacity:
+                self.restaurant_tables[table] -= num_guests
+                print(f"Assigned {num_guests} guests to table {table}.")
+                assigned = True
+                break
+        if not assigned:
+            print("No available table to accommodate the guests.")
+
+restaurant_tables = {
+    1: 2,
+    2: 4,
+    3: 6,
+    4: 8,
+    5: 10
+}
     def take_order(self):
         # get order from user
         # Use the self.menu to find the order
         self.menu.display_menu()
         self.menu.find_food(order)
 
-    def welcome_guest(self):
-        print(f"Great, we have a nice table for {self.party_size} guests! Right this way please!")
     
     """Initializes restaurant tables with each table having a guest capacity"""
 
-    def assign_guests (self, num_guests):
+    def assign_guests(self, num_guests):
         
         """Initializes the number of guests to correspond to a table
         
