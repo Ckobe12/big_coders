@@ -47,9 +47,10 @@ class MenuItem:
            Price ():Price that goes with the menu item.
        """
 
-     def __init__(self, name, price):
+     def __init__(self, name, price, keywords):
         self.name = name
         self.price = price
+        self.keywords = keywords
         
 class Menu:
     def __init__(self):
