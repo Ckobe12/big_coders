@@ -1,6 +1,5 @@
 import argparse
 import csv
-
 """ Kobe's Code"""
 class Restaurant: 
     """_summary_
@@ -37,8 +36,50 @@ class Restaurant:
         self.waiter.take_orders #waiter takes orders
         self.waiter.calculates_orders # waiter calculates the orders as well
 
+'''Joaddan's Code'''
+class MenuItem:
+     """
+       Initialize a MenuItem object.
 
 
+       Args:
+           name (str): The name of the menu item.
+           Price ():Price that goes with the menu item.
+       """
+
+     def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        
+class Menu:
+    def __init__(self):
+        self.foods = []
+
+    def add_food(self, food):
+        self.foods.append(food)
+
+    def display_menu(self):
+        print("Menu:")
+        with open("jjknmenu2.csv", mode='r', newline='') as file:
+            readmenu = csv.DictReader(file)
+            for row in readmenu:
+                name = row['Item']
+                price = float(row['Price'].replace('$','').strip())
+                food = MenuItem(name, price)
+                self.add_food(food)
+                print(f"{food.name}: ${food.price}")
+           
+
+    def find_food(self, keyword):
+        matches = []
+        for food in self.foods:
+            if keyword.lower() in food.keywords:
+                matches.append(food)
+        return matches
+
+menu = Menu()
+menu.display_menu()
+    
 
 
 
@@ -83,118 +124,8 @@ def take_order(self):
         self.menu.display_menu()
         self.menu.find_food(order)
 
-
-  """Initializes restaurant tables with each table having a guest capacity"""
-
-
-
-
-'''Joaddan's Code'''
-class MenuItem:
-     """
-       Initialize a MenuItem object.
-       Args:
-           name (str): The name of the menu item.
-           Price ():Price that goes with the menu item.
-       """
-
-     def __init__(self, name, price):
-        self.name = name
-        self.price = price
-        
-        
-class Menu:
-    def __init__(self):
-        self.foods = []
-
-    def add_food(self, food):
-        self.foods.append(food)
-
-    def display_menu(self):
-        """
-        Display the menu by reading from a CSV file and printing each item's name and price.
-        """
-        print("Menu:")
-        with open("bigmenu.csv", mode='r', newline='') as file:
-            readmenu = csv.DictReader(file)
-            for row in readmenu:
-                name = row['Item']
-                price = float(row['Price'].replace('$','').strip())
-                food = MenuItem(name, price)
-                self.add_food(food)
-                print(f"{food.name}: ${food.price}")
-           
-
-    def find_food(self, keyword):
-        """
-        Find food items that have the keyword.
-
-        Args:
-            keyword (str): The keyword to search for in the menu item names.
-
-        Returns:
-            list of MenuItem: A list of MenuItem things that contain the keyword.
-        """
-        matches = []
-        for food in self.foods:
-            if keyword.lower() in food.keywords:
-                matches.append(food)
-        return matches
-
-menu = Menu()
-menu.display_menu()
     
-
-
-
-"""Neil's Code """        #Neil you need to add all off the methodfs that I have created into your 
-                          #waiter class and have the functions that conduct those specific 
-                          # actions such as asking th party size, welcoming guests etc. 
-class Waiter:
-    """Initializes a class called waiter who assigns guests to the corresponding table"""
-    def __init__(self, restaurant_tables):
-        self.restaurant_tables = restaurant_tables# self.restaurant_tables (dictionary, set of tables in the restaurant)
-        self.party_size = 0     # self.party_size (int, has the guest party size)
-        self.menu = Menu() # self.menu (Menu, represent the menu in the restaurant)
-
-    def welcome_guest(self):
-        print(f"Great, we have a nice table for {self.party_size} guests! Right this way please!")
-    
-    def assign_guests(self, num_guests): 
-        """Initializes the number of guests to correspond to a tabl 
-        Args:
-            num_guests(int): number of guests waiting to be seated 
-            """     
-        assigned = False
-        for table, capacity in self.restaurant_tables.items():
-            if num_guests <= capacity:
-                self.restaurant_tables[table] -= num_guests
-                print(f"Assigned {num_guests} guests to table {table}.")
-                assigned = True
-                break
-        if not assigned:
-            print("No available table to accommodate the guests.")
-            restaurant_tables = {
-                            1: 2,
-                            2: 4,
-                            3: 6,
-                            4: 8,
-                            5: 10}
-        
-    def ask_waiter_to_serve(self):
-            self.waiter.welcome_guest()
-            self.waiter.assign_guests()# 
-            self.waiter.take_orders #waiter takes orders
-            self.waiter.calculates_orders # waiter calculates the orders as well
-
-    def take_order(self):
-        # get order from user
-        # Use the self.menu to find the order
-        self.menu.display_menu()
-        self.menu.find_food(order)
-
-    
-    """Initializes restaurant tables with each table having a guest capacity"""
+    """Initializes retaurant tables with each table having a guest capacity"""
 
 '''John's Code'''
 def take_orders(customer_info, menu):
@@ -239,11 +170,13 @@ def billcalc(orders, menu):
         dict: A dictionary having the total bill for each person.
     '''
     bill = {}
+    sorted_menu = sorted(menu.foods, key=lambda x: x.price)
     for person, order_list in orders.items():
         total_price = 0
+
         for item in order_list:
             if item:
-                for food in menu.foods:
+                for food in sorted_menu:
                     if item == food.name:
                         total_price += food.price
                         break
