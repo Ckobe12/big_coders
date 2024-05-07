@@ -147,7 +147,8 @@ def main():
     for person, bill in bills.items():
         print(f"{person}: ${bill}")
         
-        
+    # Thank the guests for dining
+    print("Thank you for dining in our restaurant!, It was a pleasure!")
     
     
     
