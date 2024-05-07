@@ -49,7 +49,8 @@ class Restaurant:
     def ask_waiter_to_serve(self):
         self.waiter.assign_guests(self.waiter.party_size)
     
-    
+    def update_tables(self):
+        print("Updated table assignments:", self.waiter.restaurant_tables)
     
     def book_table(self, table_number):
         if table_number in self.waiter.restaurant_tables:
