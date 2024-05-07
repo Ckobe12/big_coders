@@ -14,6 +14,10 @@ class MenuItem:
     def __init__(self, name, price):
         self.name = name
         self.price = price
+        
+    def __repr__(self):
+        return f"MenuItem('{self.name}', {self.price})"
+
 
 
 class Menu:
@@ -43,6 +47,9 @@ class Menu:
                 price = float(row['Price'].replace('$', '').strip())
                 food = MenuItem(name, price)
                 self.add_food(food)
+    
+    def __repr__(self):
+        return f"Menu({self.foods})"
     
 
 """Neil's Code """ 
