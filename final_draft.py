@@ -168,7 +168,7 @@ def main():
             print(f"{person}: ${bill}")
         
     elif choice == "no":
-        #Online Booking
+        # Online Booking
         print("\nRESERVATION BOOKING:")
         date_input = input("What date would you like to book for? (DD/MM/YYYY): ")
 
@@ -176,7 +176,7 @@ def main():
         print("\nReserve a Table:")
         table_to_book = int(input("Enter the table number you want to reserve (1-5): "))
         restaurant.book_table(table_to_book)
-        
+
     else:
         print("Invalid choice. Please enter 'yes' or 'no'.")
 
