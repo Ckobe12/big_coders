@@ -115,6 +115,19 @@ def main():
      # Create an instance of the Waiter class
     waiter = Waiter(restaurant_tables)
     
+    # Create an instance of the Restaurant class
+    restaurant = Restaurant("J.J.K.N Grill & Buffet", waiter)
+
+    # Welcome the guests
+    restaurant.welcome_guest()
+     
+
+    # Ask for the party size
+    restaurant.ask_party_size()
+
+    # Ask the waiter to serve the guests
+    restaurant.ask_waiter_to_serve()
+
     
     
     
