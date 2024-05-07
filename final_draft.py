@@ -48,6 +48,23 @@ class Restaurant:
 
     def ask_waiter_to_serve(self):
         self.waiter.assign_guests(self.waiter.party_size)
+    def order_status(self,order):
+        order_status = "In process"
+        self.orders[order] = order_status
+        print("order successfully place.")
+        
+     def update_order_status(self, order, status):
+        if order in self.orders:
+            self.orders[order] = status
+            print(f"Order status updated to {status}.")
+        else:
+            print("Order not found.")
+
+    def display_order_status(self):
+        print("Order Status:")
+        for order, status in self.orders.items():
+            print(f"{order}: {status}")
+
 
 '''Neil's Code'''
 
@@ -148,7 +165,7 @@ def main():
         print(f"{person}: ${bill}")
         
     #Online Booking
-    print("\nONLINE ORDERING:")
+    print("\nRESERVATION BOOKING:")
     date_input = input("What date would you like to book for? (DD/MM/YYYY): ")
     
     # Book tables
