@@ -168,7 +168,7 @@ def main():
         # Print bills
         print("Bills:")
         for person, bill in bills.items():
-        print(f"{person}: ${bill}")
+            print(f"{person}: ${bill}")
         
     elif choice == "no":
         #Online Booking
