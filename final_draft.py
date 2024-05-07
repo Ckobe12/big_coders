@@ -46,8 +46,8 @@ class Restaurant:
     def ask_party_size(self):
         self.waiter.party_size = int(input("How many guests are in your party today?"))
 
-    def ask_waiter_to_serve(self):
-        self.waiter.assign_guests(self.waiter.party_size)
+  
+    
 
 '''Neil's Code'''
 
