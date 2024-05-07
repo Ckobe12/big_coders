@@ -46,8 +46,6 @@ class Restaurant:
     def ask_party_size(self):
         self.waiter.party_size = int(input("How many guests are in your party today?"))
 
-    def ask_waiter_to_serve(self):
-        self.waiter.assign_guests(self.waiter.party_size)
 
 '''Neil's Code'''
 
@@ -125,8 +123,10 @@ def main():
     # Ask for the party size
     restaurant.ask_party_size()
 
-    # Ask the waiter to serve the guests
-    restaurant.ask_waiter_to_serve()
+    # Prints updated seating 
+    waiter.assign_guests(num_guests)
+    print("Updated table assignments:", restaurant_tables)
+
     
     # Read menu from CSV
     menu = Menu()
