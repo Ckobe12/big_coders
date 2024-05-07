@@ -48,23 +48,6 @@ class Restaurant:
 
     def ask_waiter_to_serve(self):
         self.waiter.assign_guests(self.waiter.party_size)
-    def order_status(self,order):
-        order_status = "In process"
-        self.orders[order] = order_status
-        print("order successfully place.")
-        
-     def update_order_status(self, order, status):
-        if order in self.orders:
-            self.orders[order] = status
-            print(f"Order status updated to {status}.")
-        else:
-            print("Order not found.")
-
-    def display_order_status(self):
-        print("Order Status:")
-        for order, status in self.orders.items():
-            print(f"{order}: {status}")
-
 
 '''Neil's Code'''
 
@@ -142,8 +125,10 @@ def main():
     # Ask for the party size
     restaurant.ask_party_size()
 
-    # Ask the waiter to serve the guests
-    restaurant.ask_waiter_to_serve()
+    # Prints updated seating 
+    waiter.assign_guests(num_guests)
+    print("Updated table assignments:", restaurant_tables)
+
     
     # Read menu from CSV
     menu = Menu()
