@@ -135,10 +135,16 @@ def main():
 
     # Welcome the guests
     restaurant.welcome_guest()
-     
+    
+    # Ask if the user wants to dine in or make a reservation
+    choice = input("Are you dining in today? (yes/no): ").lower()
 
-    # Ask for the party size
-    restaurant.ask_party_size()
+    if choice == "yes":
+        # Ask for the party size
+        restaurant.ask_party_size()
+        
+     # Ask the waiter to serve the guests
+    restaurant.ask_waiter_to_serve()
 
     # Prints updated seating 
     waiter.assign_guests(num_guests)
@@ -164,14 +170,19 @@ def main():
     for person, bill in bills.items():
         print(f"{person}: ${bill}")
         
-    #Online Booking
-    print("\nRESERVATION BOOKING:")
-    date_input = input("What date would you like to book for? (DD/MM/YYYY): ")
-    
-    # Book tables
-    print("\nReserve a Table:")
-    table_to_book = int(input("Enter the table number you want to reserve: "))
-    restaurant.book_table(table_to_book)
+    elif choice == "no":
+        #Online Booking
+        print("\nRESERVATION BOOKING:")
+        date_input = input("What date would you like to book for? (DD/MM/YYYY): ")
+
+        # Book tables
+        print("\nReserve a Table:")
+        table_to_book = int(input("Enter the table number you want to reserve (1-5): "))
+        restaurant.book_table(table_to_book)
+        
+    else:
+        print("Invalid choice. Please enter 'yes' or 'no'.")
+
         
     # Thank the guests for dining
     print("Thank you for dining in our restaurant!, It was a pleasure!")
