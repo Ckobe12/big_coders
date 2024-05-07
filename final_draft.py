@@ -29,3 +29,36 @@ restaurant_tables = {
     4: 8,
     5: 10
 }
+"""Joaddan Cadet"""
+class MenuItem:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+class Menu:
+    def __init__(self):
+        self.foods = []
+
+    def add_food(self, food):
+        self.foods.append(food)
+
+    def display_menu(self):
+        print("Menu:")
+        for food in self.foods:
+            print(f"{food.name}: ${food.price}")
+
+    def find_food(self, keyword):
+        matches = []
+        for food in self.foods:
+            if keyword.lower() in food.name.lower():
+                matches.append(food)
+        return matches
+
+    def read_menu_from_csv(self, file_path):
+        with open(file_path, mode='r', newline='') as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                name = row['Item']
+                price = float(row['Price'].replace('$', '').strip())
+                food = MenuItem(name, price)
+                self.add_food(food)
