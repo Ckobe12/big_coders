@@ -1,7 +1,7 @@
 import csv
 
 
-""Joaddan's Code""
+"""Joaddan Code"""
 
 class MenuItem:
     """
