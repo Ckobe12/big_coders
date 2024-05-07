@@ -34,7 +34,20 @@ class Menu:
                 price = float(row['Price'].replace('$', '').strip())
                 food = MenuItem(name, price)
                 self.add_food(food)
+"""Kobe's Code"""
+class Restaurant:
+    def __init__(self, name, waiter):
+        self.name = name
+        self.waiter = waiter
 
+    def welcome_guest(self):
+        print(f"Welcome to {self.name}!")
+
+    def ask_party_size(self):
+        self.waiter.party_size = int(input("How many guests are in your party today?"))
+
+    def ask_waiter_to_serve(self):
+        self.waiter.assign_guests(self.waiter.party_size)
 
 '''Neil's Code'''
 
@@ -97,3 +110,5 @@ def billcalc(orders, menu):
                         break
         bill[person] = total_price
     return bill
+
+def main():
