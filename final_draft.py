@@ -45,28 +45,21 @@ class Restaurant:
 
     def ask_party_size(self):
         self.waiter.party_size = int(input("How many guests are in your party today?"))
-    
+
     def ask_waiter_to_serve(self):
         self.waiter.assign_guests(self.waiter.party_size)
-
     
-    def place_order(self, order):
-        order_status = "In process." 
-        self.orders[order] = order_status
-        print("Order successfully placed.")
-
-    def update_order_status(self, order, status):
-        if order in self.orders:
-            self.orders[order] = status
-            print(f"Current order status:{status}.")
+    
+    
+    def book_table(self, table_number):
+        if table_number in self.waiter.restaurant_tables:
+            if self.waiter.restaurant_tables[table_number] >0:
+                print(f"Table {table_number} has been reserved.")
+                self.waiter.restaurant_tables[table_number] = 0 
+            else:
+                print(f"sorry, table{table_number} is not available.")
         else:
-            print("Order not found.")
-
-    def display_order_status(self):
-        print("Order Status:")
-        for order, status in self.orders.items():
-            print(f"{order}: {status}")
-    
+             print("Invalid table number.")
 
 '''Neil's Code'''
 
