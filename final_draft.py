@@ -45,8 +45,23 @@ class Restaurant:
 
     def ask_party_size(self):
         self.waiter.party_size = int(input("How many guests are in your party today?"))
+    
+    def place_order(self, order):
+        order_status = "Pending"  # Initial status of the order
+        self.orders[order] = order_status
+        print("Order placed successfully!")
 
-  
+    def update_order_status(self, order, status):
+        if order in self.orders:
+            self.orders[order] = status
+            print(f"Order status updated to {status}.")
+        else:
+            print("Order not found.")
+
+    def display_order_status(self):
+        print("Order Status:")
+        for order, status in self.orders.items():
+            print(f"{order}: {status}")
     
 
 '''Neil's Code'''
