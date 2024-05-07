@@ -143,31 +143,31 @@ def main():
         # Ask for the party size
         restaurant.ask_party_size()
         
-     # Ask the waiter to serve the guests
-    restaurant.ask_waiter_to_serve()
+        # Ask the waiter to serve the guests
+        restaurant.ask_waiter_to_serve()
 
-    # Prints updated seating 
-    waiter.assign_guests(num_guests)
-    print("Updated table assignments:", restaurant_tables)
+        # Prints updated seating 
+        waiter.assign_guests(num_guests)
+        print("Updated table assignments:", restaurant_tables)
 
     
-    # Read menu from CSV
-    menu = Menu()
-    menu.read_menu_from_csv("bigmenu.csv")
+        # Read menu from CSV
+        menu = Menu()
+        menu.read_menu_from_csv("bigmenu.csv")
    
-    # Display the menu
-    menu.display_menu()
+        # Display the menu
+        menu.display_menu()
 
-    # Take orders after displaying the menu
-    customer_info = [("Customer", waiter.party_size)]
-    orders = take_orders(customer_info, menu)
+        # Take orders after displaying the menu
+        customer_info = [("Customer", waiter.party_size)]
+        orders = take_orders(customer_info, menu)
    
-    # Calculate bills
-    bills = billcalc(orders, menu)
+        # Calculate bills
+        bills = billcalc(orders, menu)
 
-    # Print bills
-    print("Bills:")
-    for person, bill in bills.items():
+        # Print bills
+        print("Bills:")
+        for person, bill in bills.items():
         print(f"{person}: ${bill}")
         
     elif choice == "no":
@@ -184,8 +184,8 @@ def main():
         print("Invalid choice. Please enter 'yes' or 'no'.")
 
         
-    # Thank the guests for dining
-    print("Thank you for dining in our restaurant!, It was a pleasure!")
+        # Thank the guests for dining
+        print("Thank you for dining in our restaurant!, It was a pleasure!")
     
     
     
