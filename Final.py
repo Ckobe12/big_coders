@@ -46,7 +46,20 @@ class Restaurant:
 
     def ask_waiter_to_serve(self):
         self.waiter.assign_guests(self.waiter.party_size)
-
+    
+    def update_tables(self):
+        print("Updated table assignments:", self.waiter.restaurant_tables)
+    
+    def book_table(self, table_number):
+        if table_number in self.waiter.restaurant_tables:
+            if self.waiter.restaurant_tables[table_number] >0:
+                print(f"Table {table_number} has been reserved.")
+                self.waiter.restaurant_tables[table_number] = 0 
+            else:
+                print(f"sorry, table{table_number} is not available.")
+        else:
+             print("Invalid table number.")
+        
 class Waiter:
     def __init__(self, restaurant_tables):
         self.restaurant_tables = restaurant_tables
@@ -125,6 +138,8 @@ def main():
 
         # Ask the waiter to serve the guests
         restaurant.ask_waiter_to_serve()
+        
+        restaurant.update_tables()
 
         # Read menu from CSV
         menu = Menu()
