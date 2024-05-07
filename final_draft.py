@@ -112,3 +112,13 @@ def billcalc(orders, menu):
     return bill
 
 def main():
+     # Create an instance of the Waiter class
+    waiter = Waiter(restaurant_tables)
+    
+    
+    
+    
+    
+    
+if __name__ == "__main__":
+    main()
