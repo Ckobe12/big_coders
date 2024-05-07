@@ -127,6 +127,14 @@ def main():
 
     # Ask the waiter to serve the guests
     restaurant.ask_waiter_to_serve()
+    
+    # Read menu from CSV
+    menu = Menu()
+    menu.read_menu_from_csv("bigmenu.csv")
+   
+    # Display the menu
+    menu.display_menu()
+
 
     
     
