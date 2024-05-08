@@ -34,7 +34,7 @@ class Menu:
                 self.add_food(food)
 
 class Restaurant:
-    def __init__(self, name, waiter):
+    def __init__(self, name= "Whatever you want", waiter = None):
         self.name = name
         self.waiter = waiter
 
@@ -59,6 +59,10 @@ class Restaurant:
                 print(f"sorry, table{table_number} is not available.")
         else:
              print("Invalid table number.")
+     
+    def __str__(self):
+        return f"Restaurant: {self.name}, Waiter: {self.waiter}"
+
         
 class Waiter:
     def __init__(self, restaurant_tables):
