@@ -65,12 +65,37 @@ class Restaurant:
 
         
 class Waiter:
+    
+    """Initialize a class representing a waiter in a restaurant."""
+    
     def __init__(self, restaurant_tables):
+        
+        """Args: 
+            restaurant_tables (dict): An dictionary containing restaurant tables and their seating capacity.
+            
+            party_size (int): An integer of input of the amount of guests per party.
+            
+            Menu: A class containing menuitems.
+        """
+        
+        
         self.restaurant_tables = restaurant_tables
         self.party_size = 0
         self.menu = Menu()
 
     def assign_guests(self, num_guests):
+        
+        """Initializes a method that assigns guests to a table according to their party size and table capacity.
+        
+            Args:
+                num_guests (int): number of guests per party.
+            
+            Side effects: 
+                Modifies the value of num_guests and assigning a table according to party size..
+                
+            Returns: 
+                Returns f-string saying how many guests are assgined to which table. """
+        
         assigned = False
         for table, capacity in self.restaurant_tables.items():
             if num_guests <= capacity:
