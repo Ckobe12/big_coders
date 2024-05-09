@@ -235,3 +235,10 @@ def main():
         
         # Update tables seating 
         restaurant.update_tables()
+        
+         # Read menu from CSV
+        menu = Menu()
+        menu.read_menu_from_csv("bigmenu.csv")
+
+        # Display the menu
+        menu.display_menu()
