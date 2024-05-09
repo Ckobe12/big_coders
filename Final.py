@@ -168,6 +168,7 @@ def main():
         # Ask the waiter to serve the guests
         restaurant.ask_waiter_to_serve()
         
+        # Update tables seating 
         restaurant.update_tables()
 
         # Read menu from CSV
