@@ -211,3 +211,5 @@ def billcalc(orders, menu):
                         break
         bill[person] = total_price
     return bill
+
+def main():
