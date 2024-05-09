@@ -158,3 +158,56 @@ restaurant_tables = {
     4: 8,
     5: 10
 }
+'''John's Code'''
+def take_orders(customer_info, menu):
+    '''Take orders from customers based on the menu.
+    Args:
+        customer_info (list of tuples): Information about the customers, where each of the tuple contains the party size.
+        menu (Menu): The menu object containing available food items.
+    
+    Returns:
+         dict: A dictionary containing the orders for each person, where the key anf the values are lists of ordered items.
+    '''
+    orders = {}
+    for person, party_size in customer_info:
+        print(f'Ordering for party of {party_size} ({person}):')
+        orders[person] = []
+        for i in range(party_size):
+            print(f'Ordering for person {i+1}:')
+            order = input('What would you like to eat today? ')
+            matches = menu.find_food(order)
+            if matches:
+                print(f'Menu items matching "{order}":')
+                for match in matches:
+                    print(match.name)
+                waiter = input("Please choose an item you would like to eat: ")
+                orders[person].append(waiter)
+            else:
+                print("Sorry, we don't have that item on the menu, please choose something else.")
+                orders[person].append(None)
+    return orders
+
+def billcalc(orders, menu):
+    '''Calculate the bill for each person based on their orders and the menu.
+    
+    Args:
+        orders (dict): A dictionary containing the orders for each person, where the keys are the
+                       person and the values are lists of ordered items.
+        menu (Menu): The menu object containing available food items.
+
+    Returns:
+        dict: A dictionary containing the total bill for each person, where the keys are the person
+             and the values are the total prices of their orders.
+    '''
+    bill = {}
+    sorted_menu = sorted(menu.foods, key=lambda x: x.price)
+    for person, order_list in orders.items():
+        total_price = 0
+        for item in order_list:
+            if item:
+                for food in sorted_menu:
+                    if item == food.name:
+                        total_price += food.price
+                        break
+        bill[person] = total_price
+    return bill
