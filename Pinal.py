@@ -254,6 +254,7 @@ def main():
         print("Bills:")
         for person, bill in bills.items():
             print(f"{person}: ${bill}")
+    
     elif choice == "no":
         # Online Booking
         print("\nRESERVATION BOOKING:")
@@ -266,3 +267,9 @@ def main():
 
     else:
         print("Invalid choice. Please enter 'yes' or 'no'.")
+              
+    # Thank the guests for dining
+    print("Thank you for dining in our restaurant!")
+
+if __name__ == "__main__":
+    main()
