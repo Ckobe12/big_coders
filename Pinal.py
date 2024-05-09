@@ -106,7 +106,12 @@ class Restaurant:
         self.waiter.assign_guests(self.waiter.party_size)
     
     def update_tables(self):
+      
+        """Prints updated table seating"""
+        
         print("Updated table assignments:", self.waiter.restaurant_tables)
+        
+       
     
     def book_table(self, table_number):
         """KOBE-_summary_
@@ -163,7 +168,11 @@ class Waiter:
                 Modifies the value of num_guests and assigning a table according to party size..
                 
             Returns: 
-                Returns f-string saying how many guests are assgined to which table. """
+                Returns f-string saying how many guests are assgined to which table.
+                
+            Conditional Expression
+            
+            Neil Indrupati"""
         
         assigned = False
         for table, capacity in self.restaurant_tables.items():
@@ -174,6 +183,10 @@ class Waiter:
                 break
         if not assigned:
             print("No available table to accommodate the guests.")
+            
+"""Dictionary set of operations 
+
+Neil Indrupati"""
 
 restaurant_tables = {
     1: 2,
