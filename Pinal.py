@@ -81,27 +81,27 @@ class Restaurant:
     """KOBE-_summary_
     """
     def __init__(self, name= "Whatever you want", waiter = None):
-        """KOBE-_summary_
+        """KOBE- Initializes a Restaurant object. 
 
         Args:
-            name (str, optional): _description_. Defaults to "Whatever you want".
-            waiter (_type_, optional): _description_. Defaults to None.
+            name (str(optional)): The name of the restaurant. Defaults to "Whatever you want".
+            waiter (optional): The waiter in the restaurant. Defaults to None.
         """
         self.name = name
         self.waiter = waiter
 
     def welcome_guest(self):
-        """KOBE-_summary_
+        """KOBE- Welcomes guests to the restaurant.
         """
         print(f"Welcome to {self.name}!")
 
     def ask_party_size(self):
-        """KOBE-_summary_
+        """KOBE- Asks the party size from the guests.
         """
         self.waiter.party_size = int(input("How many guests are in your party today?"))
 
     def ask_waiter_to_serve(self):
-        """KOBE-_summary_
+        """KOBE- Asks the waiter to serve the guests.
         """
         self.waiter.assign_guests(self.waiter.party_size)
     
@@ -110,14 +110,12 @@ class Restaurant:
         """Prints updated table seating"""
         
         print("Updated table assignments:", self.waiter.restaurant_tables)
-        
-       
-    
+           
     def book_table(self, table_number):
-        """KOBE-_summary_
+        """KOBE- Books a table in the restaurant.
 
         Args:
-            table_number (_type_): _description_
+            table_number (int): The number of the table that is to be booked.
         """
         if table_number in self.waiter.restaurant_tables:
             if self.waiter.restaurant_tables[table_number] >0:
@@ -129,10 +127,10 @@ class Restaurant:
              print("Invalid table number.")
      
     def __str__(self):
-        """KOBE- _summary_
+        """KOBE- 
 
         Returns:
-            _type_: _description_
+            str: Representation of a restaurant. 
         """
         return f"Restaurant: {self.name}, Waiter: {self.waiter}"
       
