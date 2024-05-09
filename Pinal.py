@@ -242,3 +242,15 @@ def main():
 
         # Display the menu
         menu.display_menu()
+
+ # Take orders after displaying the menu
+        customer_info = [("Customer", waiter.party_size)]
+        orders = take_orders(customer_info, menu)
+
+        # Calculate bills
+        bills = billcalc(orders, menu)
+
+        # Print bills
+        print("Bills:")
+        for person, bill in bills.items():
+            print(f"{person}: ${bill}")
