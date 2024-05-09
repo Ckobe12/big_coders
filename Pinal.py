@@ -77,3 +77,31 @@ class Menu:
                     price = float(row['Price'].replace('$', '').strip())
                     food = MenuItem(name, price)
                     self.add_food(food)
+class Restaurant:
+    def __init__(self, name= "Whatever you want", waiter = None):
+        self.name = name
+        self.waiter = waiter
+
+    def welcome_guest(self):
+        print(f"Welcome to {self.name}!")
+
+    def ask_party_size(self):
+        self.waiter.party_size = int(input("How many guests are in your party today?"))
+
+    def ask_waiter_to_serve(self):
+        self.waiter.assign_guests(self.waiter.party_size)
+    
+    
+    
+    def book_table(self, table_number):
+        if table_number in self.waiter.restaurant_tables:
+            if self.waiter.restaurant_tables[table_number] >0:
+                print(f"Table {table_number} has been reserved.")
+                self.waiter.restaurant_tables[table_number] = 0 
+            else:
+                print(f"sorry, table{table_number} is not available.")
+        else:
+             print("Invalid table number.")
+     
+    def __str__(self):
+        return f"Restaurant: {self.name}, Waiter: {self.waiter}"
