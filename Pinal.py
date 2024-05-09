@@ -107,7 +107,8 @@ class Restaurant:
     
     def update_tables(self):
       
-        """Prints updated table seating"""
+        """Prints updated table seating
+        Neil Indrupati"""
         
         print("Updated table assignments:", self.waiter.restaurant_tables)
            
