@@ -78,23 +78,42 @@ class Menu:
                     food = MenuItem(name, price)
                     self.add_food(food)
 class Restaurant:
+    """KOBE-_summary_
+    """
     def __init__(self, name= "Whatever you want", waiter = None):
+        """KOBE-_summary_
+
+        Args:
+            name (str, optional): _description_. Defaults to "Whatever you want".
+            waiter (_type_, optional): _description_. Defaults to None.
+        """
         self.name = name
         self.waiter = waiter
 
     def welcome_guest(self):
+        """KOBE-_summary_
+        """
         print(f"Welcome to {self.name}!")
 
     def ask_party_size(self):
+        """KOBE-_summary_
+        """
         self.waiter.party_size = int(input("How many guests are in your party today?"))
 
     def ask_waiter_to_serve(self):
+        """KOBE-_summary_
+        """
         self.waiter.assign_guests(self.waiter.party_size)
     
     def update_tables(self):
         print("Updated table assignments:", self.waiter.restaurant_tables)
     
     def book_table(self, table_number):
+        """KOBE-_summary_
+
+        Args:
+            table_number (_type_): _description_
+        """
         if table_number in self.waiter.restaurant_tables:
             if self.waiter.restaurant_tables[table_number] >0:
                 print(f"Table {table_number} has been reserved.")
@@ -105,6 +124,11 @@ class Restaurant:
              print("Invalid table number.")
      
     def __str__(self):
+        """KOBE- _summary_
+
+        Returns:
+            _type_: _description_
+        """
         return f"Restaurant: {self.name}, Waiter: {self.waiter}"
       
       
