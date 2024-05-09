@@ -213,3 +213,20 @@ def billcalc(orders, menu):
     return bill
 
 def main():
+    
+    
+     # Create an instance of the Restaurant class
+    restaurant = Restaurant("J.J.K.N Grill & Buffet", waiter)
+
+    # Welcome the guests
+    restaurant.welcome_guest()
+
+    # Ask if the user wants to dine in or make a reservation
+    choice = input("Are you dining in today? (yes/no): ").lower()
+
+    if choice == "yes":
+        # Ask for the party size
+        restaurant.ask_party_size()
+
+        # Ask the waiter to serve the guests
+        restaurant.ask_waiter_to_serve()
