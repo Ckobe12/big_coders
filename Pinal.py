@@ -85,10 +85,12 @@ class Menu:
                     food = MenuItem(name, price)
                     self.add_food(food)
 class Restaurant:
-    """KOBE-_summary_
+    """CLINTON KOBE- A restaurant with a name and a waiter. 
     """
     def __init__(self, name= "Whatever you want", waiter = None):
-        """KOBE- Initializes a Restaurant object. 
+        """CLINTON KOBE- Initializes a Restaurant object. 
+        
+        Technique - optional parameters and/or keyword arguments
 
         Args:
             name (str(optional)): The name of the restaurant. Defaults to "Whatever you want".
@@ -98,17 +100,19 @@ class Restaurant:
         self.waiter = waiter
 
     def welcome_guest(self):
-        """KOBE- Welcomes guests to the restaurant.
+        """CLINTON KOBE- Welcomes guests to the restaurant.
+        
+        Technique - f-string containing expression
         """
         print(f"Welcome to {self.name}!")
 
     def ask_party_size(self):
-        """KOBE- Asks the party size from the guests.
+        """CLINTON KOBE- Asks the party size from the guests.
         """
         self.waiter.party_size = int(input("How many guests are in your party today?"))
 
     def ask_waiter_to_serve(self):
-        """KOBE- Asks the waiter to serve the guests.
+        """CLINTON KOBE- Asks the waiter to serve the guests.
         """
         self.waiter.assign_guests(self.waiter.party_size)
     
@@ -120,7 +124,7 @@ class Restaurant:
         print("Updated table assignments:", self.waiter.restaurant_tables)
            
     def book_table(self, table_number):
-        """KOBE- Books a table in the restaurant.
+        """CLINTON KOBE- Books a table in the restaurant.
 
         Args:
             table_number (int): The number of the table that is to be booked.
@@ -135,7 +139,9 @@ class Restaurant:
              print("Invalid table number.")
      
     def __str__(self):
-        """KOBE- 
+        """CLINTON KOBE-
+        
+        Technique - _str_ Magic Method 
 
         Returns:
             str: Representation of a restaurant. 
