@@ -214,6 +214,8 @@ def billcalc(orders, menu):
 
 def main():
     
+    # Create an instance of the Waiter class
+    waiter = Waiter(restaurant_tables)
     
      # Create an instance of the Restaurant class
     restaurant = Restaurant("J.J.K.N Grill & Buffet", waiter)
@@ -230,3 +232,6 @@ def main():
 
         # Ask the waiter to serve the guests
         restaurant.ask_waiter_to_serve()
+        
+        # Update tables seating 
+        restaurant.update_tables()
