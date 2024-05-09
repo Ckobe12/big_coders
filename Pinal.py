@@ -196,6 +196,7 @@ restaurant_tables = {
 }
 '''John's Code'''
 def take_orders(customer_info, menu):
+    '''John Williams- Sequence Unpacking '''
     '''Take orders from customers based on the menu.
     Args:
         customer_info (list of tuples): Information about the customers, where each of the tuple contains the party size.
@@ -235,6 +236,7 @@ def billcalc(orders, menu):
         dict: A dictionary containing the total bill for each person, where the keys are the person
              and the values are the total prices of their orders.
     '''
+    '''John Williams- use of lambda function with sorted()'''
     bill = {}
     sorted_menu = sorted(menu.foods, key=lambda x: x.price)
     for person, order_list in orders.items():
