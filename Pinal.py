@@ -3,6 +3,8 @@ import csv
 """Joaddan Cadet"""
 class MenuItem:
      """
+     Author: Joaddan Cadet 
+     ()
    Initialize a MenuItem object.
 
 
@@ -18,6 +20,7 @@ class MenuItem:
 
 class Menu:
      """
+     Author: Joaddan Cadet- Magic methods 
    Represents a menu containing multiple MenuItem things.
    """
 
@@ -26,6 +29,7 @@ class Menu:
 
      def add_food(self, food):
           """
+          Author: Joaddan Cadet- Optional Parameter
        Adds a MenuItem to the menu.
 
 
@@ -36,6 +40,7 @@ class Menu:
 
      def display_menu(self):
          """
+         Author: Joaddan- F strings
        Displays the menu by printing each MenuItem's name and price.
        """
          print("Menu:")
@@ -44,6 +49,7 @@ class Menu:
 
      def find_food(self, keyword):
          """
+         Author: Joaddan Cadet - Condtional expressions
        Finds MenuItem whose names contain the keyword.
 
 
@@ -64,6 +70,7 @@ class Menu:
      def read_menu_from_csv(self, file_path):
          
          """
+         Author: Joaddan Cadet - With statements
       This reads menu items from CSV file and adds them to the menu.
 
 
@@ -196,7 +203,6 @@ restaurant_tables = {
 }
 '''John's Code'''
 def take_orders(customer_info, menu):
-    '''John Williams- Sequence Unpacking '''
     '''Take orders from customers based on the menu.
     Args:
         customer_info (list of tuples): Information about the customers, where each of the tuple contains the party size.
@@ -236,7 +242,6 @@ def billcalc(orders, menu):
         dict: A dictionary containing the total bill for each person, where the keys are the person
              and the values are the total prices of their orders.
     '''
-    '''John Williams- use of lambda function with sorted()'''
     bill = {}
     sorted_menu = sorted(menu.foods, key=lambda x: x.price)
     for person, order_list in orders.items():
